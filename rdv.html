@@ -221,6 +221,14 @@
   .assurance-card:hover { border-color: var(--bleu); }
   .assurance-card.selected { border-color: var(--bleu); background: var(--bleu-pale); color: var(--bleu); }
   .assurance-card .ass-logo { font-size: 24px; margin-bottom: 8px; }
+  .assurance-card img.ass-logo {
+    width: 70px; height: 36px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .plaque-wrap {
     display: flex;
@@ -735,18 +743,18 @@
     <div class="step-subtitle">Sélectionnez votre assureur pour une prise en charge optimale</div>
 
     <div class="assurance-grid">
-      <div class="assurance-card" data-val="MAIF"><div class="ass-logo">🛡️</div>MAIF</div>
-      <div class="assurance-card" data-val="MACIF"><div class="ass-logo">🛡️</div>MACIF</div>
-      <div class="assurance-card" data-val="AXA"><div class="ass-logo">🛡️</div>AXA</div>
-      <div class="assurance-card" data-val="Groupama"><div class="ass-logo">🛡️</div>Groupama</div>
-      <div class="assurance-card" data-val="Allianz"><div class="ass-logo">🛡️</div>Allianz</div>
-      <div class="assurance-card" data-val="MMA"><div class="ass-logo">🛡️</div>MMA</div>
-      <div class="assurance-card" data-val="Generali"><div class="ass-logo">🛡️</div>Generali</div>
-      <div class="assurance-card" data-val="Matmut"><div class="ass-logo">🛡️</div>Matmut</div>
-      <div class="assurance-card" data-val="Direct Assurance"><div class="ass-logo">🛡️</div>Direct Ass.</div>
-      <div class="assurance-card" data-val="GMF"><div class="ass-logo">🛡️</div>GMF</div>
-      <div class="assurance-card" data-val="MAAF"><div class="ass-logo">🛡️</div>MAAF</div>
-      <div class="assurance-card" data-val="Autre"><div class="ass-logo">🛡️</div>Autre</div>
+      <div class="assurance-card" data-val="MAIF"><img class="ass-logo" src="https://logo.clearbit.com/maif.fr" alt="MAIF" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">MAIF</div>
+      <div class="assurance-card" data-val="MACIF"><img class="ass-logo" src="https://logo.clearbit.com/macif.fr" alt="MACIF" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">MACIF</div>
+      <div class="assurance-card" data-val="AXA"><img class="ass-logo" src="https://logo.clearbit.com/axa.fr" alt="AXA" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">AXA</div>
+      <div class="assurance-card" data-val="Groupama"><img class="ass-logo" src="https://logo.clearbit.com/groupama.fr" alt="Groupama" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">Groupama</div>
+      <div class="assurance-card" data-val="Allianz"><img class="ass-logo" src="https://logo.clearbit.com/allianz.fr" alt="Allianz" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">Allianz</div>
+      <div class="assurance-card" data-val="MMA"><img class="ass-logo" src="https://logo.clearbit.com/mma.fr" alt="MMA" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">MMA</div>
+      <div class="assurance-card" data-val="Generali"><img class="ass-logo" src="https://logo.clearbit.com/generali.fr" alt="Generali" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">Generali</div>
+      <div class="assurance-card" data-val="Matmut"><img class="ass-logo" src="https://logo.clearbit.com/matmut.fr" alt="Matmut" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">Matmut</div>
+      <div class="assurance-card" data-val="Direct Assurance"><img class="ass-logo" src="https://logo.clearbit.com/direct-assurance.fr" alt="Direct Assurance" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">Direct Ass.</div>
+      <div class="assurance-card" data-val="GMF"><img class="ass-logo" src="https://logo.clearbit.com/gmf.fr" alt="GMF" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">GMF</div>
+      <div class="assurance-card" data-val="MAAF"><img class="ass-logo" src="https://logo.clearbit.com/maaf.fr" alt="MAAF" onerror="this.outerHTML='<div style=font-size:24px;margin-bottom:8px>🛡️</div>'">MAAF</div>
+      <div class="assurance-card" data-val="Autre"><div style="font-size:24px;margin-bottom:8px">🛡️</div>Autre</div>
     </div>
 
     <div style="margin-bottom:24px;">
@@ -911,7 +919,7 @@
       <div class="success-sub">Votre demande a bien été envoyée. Easy Glass vous contacte dans les plus brefs délais pour confirmer le créneau.</div>
       <div class="success-card">
         <div class="recap-row"><span class="recap-icon">📞</span><span class="recap-key">Téléphone</span><span class="recap-val">06 12 69 58 48</span></div>
-        <div class="recap-row"><span class="recap-icon">✉️</span><span class="recap-key">Email</span><span class="recap-val">accueileasyglass45@gmail.com</span></div>
+        <div class="recap-row"><span class="recap-icon">✉️</span><span class="recap-key">Email</span><span class="recap-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3756545442525e5b5256444e505b564444030277505a565e5b1954585a">[email&#160;protected]</a></span></div>
         <div class="recap-row"><span class="recap-icon">🕐</span><span class="recap-key">Horaires</span><span class="recap-val">Lun–Ven 8h–19h</span></div>
       </div>
       <a href="index.html" style="display:inline-block;background:var(--bleu);color:white;padding:14px 32px;border-radius:12px;text-decoration:none;font-weight:700;">← Retour au site</a>
@@ -920,7 +928,7 @@
 
 </main>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   var state = {
     vitrage: null,
     dommage: null,
@@ -1235,16 +1243,4 @@
           for (var j = 0; j < progSteps.length; j++) {
             progSteps[j].classList.remove('active');
             progSteps[j].classList.add('done');
-          }
-        } else {
-          alert('Une erreur est survenue. Veuillez réessayer.');
-        }
-      }).catch(function() {
-        alert('Une erreur est survenue. Veuillez réessayer.');
-      });
-    });
-  });
-</script>
-
-</body>
-</html>
+         
