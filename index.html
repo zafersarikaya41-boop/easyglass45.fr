@@ -1038,8 +1038,15 @@
 </div>
 
 <script>
-  document.getElementById("menu-toggle").addEventListener("click", function() {
-  document.getElementById("nav-links").classList.toggle("active");
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("menu-toggle");
+  const menu = document.getElementById("nav-links");
+
+  if (btn && menu) {
+    btn.addEventListener("click", function () {
+      menu.classList.toggle("active");
+    });
+  }
 });
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
