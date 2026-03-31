@@ -617,9 +617,40 @@
 .hero h1 {
   line-height: 1.08 !important;
 }
+.menu-toggle {
+  display: none;
+  background: #1a56db;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none !important;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
+}
 </style>
 </head>
-<body>
+  <body>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -653,7 +684,10 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo"><img src="logo.png" alt="Easy Glass Logo" style="height: 150px;"></a>
-  <ul class="nav-links">
+<button class="menu-toggle" id="menu-toggle">
+☰
+</button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#processus">Comment ça marche</a></li>
     <li><a href="#zone">Zone d'intervention</a></li>
@@ -1004,6 +1038,9 @@
 </div>
 
 <script>
+  document.getElementById("menu-toggle").addEventListener("click", function() {
+  document.getElementById("nav-links").classList.toggle("active");
+});
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
