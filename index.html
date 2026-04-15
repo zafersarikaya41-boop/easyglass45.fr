@@ -337,8 +337,10 @@ padding: 0;
 }
 }
   /* SECTIONS */
-  .section { padding: 100px 60px; }
-  .section-tag {
+.section { padding: 100px 60px; }
+@media (max-width: 1024px) {
+  .section { padding: 70px 24px; }
+}  .section-tag {
     font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
     color: var(--bleu); font-weight: 600;
     border-left: 3px solid var(--bleu); padding-left: 14px;
