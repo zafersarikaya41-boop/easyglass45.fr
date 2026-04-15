@@ -352,31 +352,54 @@ padding: 0;
   }
   .section-title span { color: var(--bleu); }
 
-  /* SERVICES */
-  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+ /* SERVICES */
+.services-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+  }
+  .services-grid::-webkit-scrollbar { display: none; }
   .service-card {
-    background: var(--blanc);
-    border: 1.5px solid var(--gris-bord);
-    border-radius: 16px; padding: 40px 36px;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-width: 300px;
+    height: 400px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    cursor: pointer;
   }
-  .service-card:hover {
-    border-color: var(--bleu);
-    box-shadow: 0 10px 40px rgba(26,86,219,0.1);
-    transform: translateY(-4px);
+  .service-card-bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
   }
-  .service-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+  .service-card:hover .service-card-bg { transform: scale(1.05); }
+  .service-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  }
+  .service-card-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px;
+  }
+  .service-card-tag {
+    display: inline-block;
+    background: var(--bleu);
+    color: white;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 4px;
+    margin-bottom: 12px; font-weight: 600;
+  }
   .service-card h3 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px; letter-spacing: 1px; color: var(--texte);
-    margin-bottom: 14px;
-  }
-  .service-card p { font-size: 14px; line-height: 1.75; color: var(--texte-clair); }
-  .service-card .price {
-    margin-top: 24px; padding-top: 20px;
-    border-top: 1px solid var(--gris-bord);
-    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
-    color: var(--bleu); font-weight: 600;
+    font-size: 28px; letter-spacing: 1px;
+    color: white; margin-bottom: 0;
   }
 
   /* PROCESSUS */
@@ -815,43 +838,47 @@ nav {
   <div class="section-tag">Nos prestations</div>
   <h2 class="section-title">CE QU'ON<br><span>FAIT POUR VOUS</span></h2>
   <div class="services-grid">
-    <div class="service-card reveal">
-      <span class="service-icon">🔧</span>
+  <div class="service-card">
+    <div class="service-card-bg" style="background-image: url('remplacement.png')"></div>
+    <div class="service-card-overlay"></div>
+    <div class="service-card-content">
+      <span class="service-card-tag">Prise en charge assurance</span>
       <h3>Remplacement Pare-Brise</h3>
-      <p>Remplacement complet de votre pare-brise avec des vitrages de qualité OEM. Pose avec joint homologué et résine haute résistance. Délai de séchage respecté, véhicule restitué propre.</p>
-      <div class="price">→ Prise en charge assurance possible</div>
-    </div>
-    <div class="service-card reveal">
-      <span class="service-icon">💎</span>
-      <h3>Réparation d'Impact</h3>
-      <p>Un impact ou une étoile sur votre pare-brise ? Évitez le remplacement. On répare les impacts jusqu'à 3 cm en moins d'une heure. Résultat quasi-invisible, résistance restaurée à 95%.</p>
-      <div class="price">→ À partir de 39€ — souvent gratuit avec assurance</div>
-    </div>
-    <div class="service-card reveal">
-      <span class="service-icon">🚗</span>
-      <h3>Vitres Latérales & Arrière</h3>
-      <p>Remplacement de toutes les vitres de votre véhicule : vitres de portes, custodes, lunette arrière. Compatible tous véhicules toutes marques. Stock important de références disponibles.</p>
-      <div class="price">→ Devis sur demande</div>
-    </div>
-    <div class="service-card reveal">
-      <span class="service-icon">📡</span>
-      <h3>Calibrage Caméra ADAS</h3>
-      <p>Votre véhicule est équipé de systèmes d'aide à la conduite ? Après le remplacement, nous effectuons le recalibrage obligatoire avec équipement agréé constructeur.</p>
-      <div class="price">→ Indispensable pour votre sécurité</div>
-    </div>
-    <div class="service-card reveal">
-      <span class="service-icon">🏠</span>
-      <h3>Intervention à Domicile</h3>
-      <p>Nous nous déplaçons directement chez vous, sur votre lieu de travail ou partout dans la zone d'Orléans. Aucun déplacement de votre part. Service inclus sans supplément.</p>
-      <div class="price">→ Rayon 30 km autour d'Orléans</div>
-    </div>
-    <div class="service-card reveal">
-      <span class="service-icon">📋</span>
-      <h3>Prise en Charge Assurance</h3>
-      <p>Nous gérons directement votre dossier auprès de votre assurance. Dans de nombreux cas, le remplacement est intégralement remboursé, sans avance de frais de votre part.</p>
-      <div class="price">→ Zéro avance de frais possible</div>
     </div>
   </div>
+  <div class="service-card">
+    <div class="service-card-bg" style="background-image: url('impact.png')"></div>
+    <div class="service-card-overlay"></div>
+    <div class="service-card-content">
+      <span class="service-card-tag">À partir de 39€</span>
+      <h3>Réparation d'Impact</h3>
+    </div>
+  </div>
+  <div class="service-card">
+    <div class="service-card-bg" style="background-image: url('lunette.png')"></div>
+    <div class="service-card-overlay"></div>
+    <div class="service-card-content">
+      <span class="service-card-tag">Devis sur demande</span>
+      <h3>Vitres Latérales & Arrière</h3>
+    </div>
+  </div>
+  <div class="service-card">
+    <div class="service-card-bg" style="background-image: url('intervention.png')"></div>
+    <div class="service-card-overlay"></div>
+    <div class="service-card-content">
+      <span class="service-card-tag">Orléans & alentours</span>
+      <h3>Intervention à Domicile</h3>
+    </div>
+  </div>
+  <div class="service-card">
+    <div class="service-card-bg" style="background-image: url('calibrage.png')"></div>
+    <div class="service-card-overlay"></div>
+    <div class="service-card-content">
+      <span class="service-card-tag">Homologué constructeur</span>
+      <h3>Calibrage Caméra ADAS</h3>
+    </div>
+  </div>
+</div>
 </section>
 
 <!-- PROCESSUS -->
