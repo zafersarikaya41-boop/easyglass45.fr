@@ -287,7 +287,31 @@
     padding: 0 40px; color: rgba(255,255,255,0.9);
   }
   .ticker span::before { content: '◆'; margin-right: 40px; color: #93c5fd; opacity: 0.8; }
-
+.stats-carousel {
+  overflow: hidden;
+  width: 100%;
+  background: var(--blanc);
+  padding: 20px 0;
+}
+.stats-track {
+  display: flex;
+  gap: 20px;
+  animation: carousel 20s linear infinite;
+  width: max-content;
+}
+.stats-track .stat-item {
+  width: 300px;
+  flex-shrink: 0;
+}
+.stats-track .stat-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+@keyframes carousel {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
   /* STATS */
   .stats {
   padding: 40px 60px;
@@ -772,18 +796,16 @@ nav {
 </div>
 
 <!-- STATS -->
-<div class="stats">
-  <div class="stat-item reveal">
-    <img src="carte1.png" alt="Tous véhicules" style="width:100%; border-radius:12px;">
-  </div>
-  <div class="stat-item reveal">
-    <img src="carte2.png" alt="Toutes assurances" style="width:100%; border-radius:12px;">
-  </div>
-  <div class="stat-item reveal">
-    <img src="carte3.png" alt="À domicile" style="width:100%; border-radius:12px;">
-  </div>
-  <div class="stat-item reveal">
-    <img src="carte4.png" alt="Franchise offerte" style="width:100%; border-radius:12px;">
+<div class="stats-carousel">
+  <div class="stats-track">
+    <div class="stat-item"><img src="carte1.png" alt="Tous véhicules"></div>
+    <div class="stat-item"><img src="carte2.png" alt="Toutes assurances"></div>
+    <div class="stat-item"><img src="carte3.png" alt="À domicile"></div>
+    <div class="stat-item"><img src="carte4.png" alt="Franchise offerte"></div>
+    <div class="stat-item"><img src="carte1.png" alt="Tous véhicules"></div>
+    <div class="stat-item"><img src="carte2.png" alt="Toutes assurances"></div>
+    <div class="stat-item"><img src="carte3.png" alt="À domicile"></div>
+    <div class="stat-item"><img src="carte4.png" alt="Franchise offerte"></div>
   </div>
 </div>
 
