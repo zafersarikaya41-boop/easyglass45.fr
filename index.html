@@ -404,17 +404,12 @@ padding: 0;
 
   /* PROCESSUS */
   .process { padding: 100px 60px; background: var(--fond); }
- .steps {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 16px;
-    scrollbar-width: none;
-    margin-top: 60px;
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 40px;
   }
-  .steps::-webkit-scrollbar { display: none; }
   .steps::before { display: none; }
   .step {
     background: var(--blanc);
