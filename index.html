@@ -1187,30 +1187,39 @@ document.addEventListener("DOMContentLoaded", function () {
   let isDown = false;
   let startX;
   let scrollLeft;
+  let autoScroll;
+
+  function startAutoScroll() {
+    autoScroll = setInterval(() => {
+      carousel.scrollLeft += 1;
+      if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+        carousel.scrollLeft = 0;
+      }
+    }, 20);
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScroll);
+  }
 
   carousel.addEventListener('mousedown', (e) => {
     isDown = true;
+    stopAutoScroll();
     carousel.style.cursor = 'grabbing';
     startX = e.pageX - carousel.offsetLeft;
     scrollLeft = carousel.scrollLeft;
   });
-  carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; });
-  carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; });
+  carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; startAutoScroll(); });
+  carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; startAutoScroll(); });
   carousel.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - carousel.offsetLeft;
     carousel.scrollLeft = scrollLeft - (x - startX);
   });
+  carousel.addEventListener('touchstart', () => stopAutoScroll());
+  carousel.addEventListener('touchend', () => startAutoScroll());
 
-  let autoScroll = setInterval(() => {
-    carousel.scrollLeft += 1;
-    if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
-      carousel.scrollLeft = 0;
-    }
-  }, 20);
-
-  ', () => clearInterval(autoScroll)); carousel.addEventListener('touchend', () => {   autoScroll = setInterval(() => {     carousel.scrollLeft += 1;     if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {       carousel.scrollLeft = 0;     }   }, 20); });
-  carousel.addEventListener('mousedown', () => clearInterval(autoScroll));
+  startAutoScroll();
 </script>
 </html>
