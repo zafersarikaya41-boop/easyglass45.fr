@@ -1180,4 +1180,37 @@ document.addEventListener("DOMContentLoaded", function () {
   reveals.forEach(el => observer.observe(el));
 
   document.querySelector('.submit-btn').addEventListener('click', function() {
-    this.textContent = '✓ Demande envo
+    this.textContent = '✓ Demande envo});
+</script>
+<script>
+  const carousel = document.querySelector('.stats-carousel');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    carousel.style.cursor = 'grabbing';
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+  carousel.addEventListener('mouseleave', () => { isDown = false; carousel.style.cursor = 'grab'; });
+  carousel.addEventListener('mouseup', () => { isDown = false; carousel.style.cursor = 'grab'; });
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    carousel.scrollLeft = scrollLeft - (x - startX);
+  });
+
+  let autoScroll = setInterval(() => {
+    carousel.scrollLeft += 1;
+    if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+      carousel.scrollLeft = 0;
+    }
+  }, 20);
+
+  carousel.addEventListener('touchstart', () => clearInterval(autoScroll));
+  carousel.addEventListener('mousedown', () => clearInterval(autoScroll));
+</script>
+</html>
