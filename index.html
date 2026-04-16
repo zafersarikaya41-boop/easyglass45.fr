@@ -1192,7 +1192,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function startAutoScroll() {
     autoScroll = setInterval(() => {
       carousel.scrollLeft += 1;
-      if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
         carousel.scrollLeft = 0;
       }
     }, 20);
