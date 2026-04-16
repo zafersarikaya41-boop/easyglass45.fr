@@ -1210,7 +1210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 20);
 
-  carousel.addEventListener('touchstart', () => clearInterval(autoScroll));
+  ', () => clearInterval(autoScroll)); carousel.addEventListener('touchend', () => {   autoScroll = setInterval(() => {     carousel.scrollLeft += 1;     if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {       carousel.scrollLeft = 0;     }   }, 20); });
   carousel.addEventListener('mousedown', () => clearInterval(autoScroll));
 </script>
 </html>
